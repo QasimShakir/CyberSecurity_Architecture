@@ -66,4 +66,4 @@ The University Management System is a service-oriented application designed to h
 
 ### 4.2 Updated architecture diagram
 
-![University Threat Model](./diagrams/arch-updated.png)
+![University Threat Model](./diagrams/arch_updated.png)
