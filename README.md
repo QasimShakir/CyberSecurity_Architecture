@@ -16,39 +16,7 @@ The University Management System is a service-oriented application designed to h
 * **Data Layer:** Consists of a Central SQL Database for structured records and Object Storage for course files.
 
 ### 1.2 Architecture Diagram
-```mermaid
-graph TD
-    subgraph PublicZone [Public Internet]
-        Users["University Users (Student/Faculty/Alumni)"]
-    end
 
-    subgraph DMZ [DMZ / Entrance]
-        GW["API Gateway / WAF"]
-    end
-
-    subgraph TrustedZone [University Internal Network]
-        Auth["Identity Service (SSO)"]
-        Acad["Academic Service (LMS/Grades)"]
-        Fin["Financial Service (Fees/Salary)"]
-        
-        subgraph DataLayer [Data Storage]
-            DB[(Central Database)]
-            Files[(File Storage - LMS)]
-        end
-    end
-
-    subgraph AdminZone [Management Plane]
-        Admin["Registrar / Admin Portal"]
-    end
-
-    Users -->|HTTPS| GW
-    GW --> Auth
-    GW --> Acad
-    GW --> Fin
-    Acad & Fin & Auth --> DB
-    Acad --> Files
-    Admin ==>|Secure Tunnel| Auth
-    Admin ==>|Audit Logs| DB
 ### 2.1 Asset Inventory Table
 
 | Asset ID | Asset Name | Description | Data Type | Location |
