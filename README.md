@@ -54,7 +54,7 @@ The University Management System is a service-oriented application designed to h
 ![University Threat Model](./diagrams/threat.png)
 ---
 
-###  Task 4: Secure Architecture Design (Controls)
+###  4.1: Secure Architecture Design (Controls)
 
 | Control ID | Category | Proposed Architectural Control | Justification |
 | :--- | :--- | :--- | :--- |
@@ -63,3 +63,7 @@ The University Management System is a service-oriented application designed to h
 | **C-03** | **Network** | **Private Subnets (VPC)** | Protects the DB by ensuring it has no public IP address. |
 | **C-04** | **Data Protection** | **TLS 1.3 & AES-256 Encryption** | Mitigates **T-04** for data in transit and at rest. |
 | **C-05** | **Management** | **VPN / IP Whitelisting** | Solves **T-06** by hiding the Admin portal from the public web. |
+
+### 4.2 Updated architecture diagram
+
+![University Threat Model](./diagrams/arch-updated.png)
