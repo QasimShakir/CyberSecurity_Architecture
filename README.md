@@ -16,6 +16,8 @@ The University Management System is a service-oriented application designed to h
 * **Data Layer:** Consists of a Central SQL Database for structured records and Object Storage for course files.
 
 ### 1.2 Architecture Diagram
+![University Threat Model](./diagrams/arch.png)
+---
 
 ### 2.1 Asset Inventory Table
 
@@ -26,7 +28,7 @@ The University Management System is a service-oriented application designed to h
 | **A-03** | **Grade Records** | Final grades and transcripts. | Academic | Relational DB |
 | **A-04** | **Financial Ledgers** | Fee payment and faculty payroll. | Financial | Financial DB |
 
-### 🔍 Task 3: Structured Threat Modeling (OWASP)
+###  3.1: Structured Threat Modeling (OWASP)
 
 | Threat ID | Threat Area | OWASP Category | Description | Affected Component | Risk Level |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -39,7 +41,7 @@ The University Management System is a service-oriented application designed to h
 
 ---
 
-###  Task 3: Risk Reasoning for Each Threat
+###  3.2: Risk Reasoning for Each Threat
 
 * **T-01 (Authentication):** Ranked **High** because faculty accounts are high-value targets. Compromise leads to leaked exams and mass grade manipulation.
 * **T-02 (Authorization):** Ranked **High** because students and faculty share the same API. If access control is broken, the "Trust Boundary" between roles disappears.
@@ -48,6 +50,8 @@ The University Management System is a service-oriented application designed to h
 * **T-05 (Logging):** Ranked **High** because accountability is required for financial compliance. Without logs, insider threats (disgruntled staff) can commit fraud without detection.
 * **T-06 (Admin Access):** Ranked **High** because the Admin Portal has "god-mode" permissions. Public exposure is a critical architecture flaw.
 
+### 3.3: Threat Diagram
+![University Threat Model](./diagrams/threat.png)
 ---
 
 ###  Task 4: Secure Architecture Design (Controls)
