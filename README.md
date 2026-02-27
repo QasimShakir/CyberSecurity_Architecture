@@ -63,14 +63,15 @@ The University Management System (UMS) is a service-oriented application designe
 
 ### 4.2 Security Control Justifications
 
-| Control ID | Category | Proposed Control | Justification (Risk Mitigation) |
+| Control ID | Category | Proposed Control | Justification (Risk-Based Reasoning) |
 | :--- | :--- | :--- | :--- |
-| **C-01** | **IAM** | **Multi-Factor Auth (MFA)** | Mitigates **T-01**: Prevents account takeover even if passwords leak. |
-| **C-02** | **Logic** | **Server-Side RBAC** | Mitigates **T-02**: Ensures users only access data permitted by their role. |
-| **C-03** | **Network** | **Web App Firewall (WAF)** | Mitigates **T-03**: Filters SQLi and XSS patterns at the perimeter. |
-| **C-04** | **Data** | **AES-256 & TLS 1.3** | Mitigates **T-04**: Protects data-in-transit and at-rest via strong encryption. |
-| **C-05** | **Logging** | **Immutable Audit Logs** | Mitigates **T-05**: Ensures a permanent, tamper-proof record of sensitive changes. |
-| **C-06** | **Network** | **VPN / IP Whitelisting** | Mitigates **T-06**: Removes the Admin Portal from the public internet. |
+| **C-01** | **IAM** | **Multi-Factor Auth (MFA)** | Mitigates **T-01**: Prevents account takeover even if passwords leak via phishing or brute force. |
+| **C-02** | **Logic** | **Server-Side RBAC** | Mitigates **T-02**: Prevents BOLA (Broken Object Level Authorization) by validating permissions at the API layer for every request. |
+| **C-03** | **Network** | **Web App Firewall (WAF)** | Mitigates **T-03**: Inspects HTTP traffic for SQLi, XSS, and command injection patterns before they reach the backend. |
+| **C-04** | **Data** | **AES-256 & TLS 1.3** | Mitigates **T-04**: Ensures confidentiality for data-in-transit (TLS) and data-at-rest (AES-256) using industry-standard ciphers. |
+| **C-05** | **Logging** | **Immutable Audit Logs** | Mitigates **T-05**: Uses WORM (Write-Once-Read-Many) storage to ensure logs cannot be altered by intruders or malicious insiders. |
+| **C-06** | **Network** | **Zero-Trust VPN / Tunnel** | Mitigates **T-06**: Removes the Admin Portal from the public attack surface by requiring an encrypted tunnel and device posture check. |
+| **C-07** | **Secrets** | **Key Management (KMS)** | **Critical Control:** Centralizes the storage of DB credentials and AES encryption keys; prevents hardcoded secrets and unauthorized key access. |
 
 ---
 
